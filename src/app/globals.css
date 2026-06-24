@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* font: Overused Grotesk (variable, self-hosted via next/font/local) */
+/* font: Geist (next/font/google) */
 :root {
   /* Brand palette (from Figma — LMS Landing Page) */
   --surface: #f6f5f3; /* warm off-white page background */
@@ -16,23 +16,23 @@
   --color-ink-strong: var(--ink-strong);
   --color-brand: var(--brand);
   --color-on-brand: var(--on-brand);
-  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--surface);
   color: var(--ink);
-  font-family: var(--font-grotesk), ui-sans-serif, system-ui, Arial, sans-serif;
+  font-family: var(--font-geist), ui-sans-serif, system-ui, Arial, sans-serif;
   /* Crisper rendering */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
-  /* Display / brand voice — Overused Grotesk (applied on the big headings). */
+  /* Display / brand voice — Geist (applied on the big headings). */
   .font-display {
-    font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   }
 
   /* Hide scrollbar (used by the horizontal steps slider) */

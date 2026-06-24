@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-const overusedGrotesk = localFont({
-  src: "./fonts/OverusedGrotesk-VF.woff2",
-  variable: "--font-grotesk",
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
   display: "swap",
-  weight: "300 900",
 });
 
 export const metadata: Metadata = {
@@ -21,10 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${overusedGrotesk.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${geist.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-[#f6f5f3]">{children}</body>
     </html>
   );
