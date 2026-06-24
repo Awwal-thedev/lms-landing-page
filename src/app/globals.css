@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* fonts: Clash Display (display) + Satoshi (body) via Fontshare */
+/* font: Inter (next/font) — optical sizing gives the "Inter Display" cut at large sizes */
 :root {
   /* Brand palette (from Figma — LMS Landing Page) */
   --surface: #f6f5f3; /* warm off-white page background */
@@ -16,25 +16,26 @@
   --color-ink-strong: var(--ink-strong);
   --color-brand: var(--brand);
   --color-on-brand: var(--on-brand);
-  --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Clash Display", "Satoshi", sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--surface);
   color: var(--ink);
-  font-family: "Satoshi", ui-sans-serif, system-ui, Arial, sans-serif;
-  /* Crisper rendering */
+  font-family: var(--font-inter), ui-sans-serif, system-ui, Arial, sans-serif;
+  /* Crisper rendering; auto optical sizing renders the Inter Display cut at large sizes */
   text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
-  /* Display / brand voice — Clash Display. Applied explicitly via `font-display`
-     only on the big section headings; everything else stays on Satoshi. (Does
-     not depend on @theme token indirection, which resolved empty in Tw v4.) */
+  /* Display / brand voice — Inter; auto optical sizing renders the "Inter
+     Display" cut at the large heading sizes where `font-display` is applied. */
   .font-display {
-    font-family: "Clash Display", "Satoshi", sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    font-optical-sizing: auto;
   }
 
   /* Hide scrollbar (used by the horizontal steps slider) */
