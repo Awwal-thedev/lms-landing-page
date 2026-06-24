@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+const overusedGrotesk = localFont({
+  src: "./fonts/OverusedGrotesk-VF.woff2",
+  variable: "--font-grotesk",
   display: "swap",
-  axes: ["opsz"], // optical sizing → large headings use the "Display" cut
+  weight: "300 900",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${overusedGrotesk.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col bg-[#f6f5f3]">{children}</body>
     </html>
   );
