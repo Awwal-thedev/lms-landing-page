@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
+/* fonts: Clash Display (display) + Satoshi (body) via Fontshare */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand palette (from Figma — LMS Landing Page) */
+  --surface: #f6f5f3; /* warm off-white page background */
+  --ink: #232323; /* primary text / nav links */
+  --ink-strong: #000000; /* wordmark */
+  --brand: #0003db; /* primary blue (Request a Demo) */
+  --on-brand: #f3f3f3;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-strong: var(--ink-strong);
+  --color-brand: var(--brand);
+  --color-on-brand: var(--on-brand);
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Clash Display", "Satoshi", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: "Satoshi", ui-sans-serif, system-ui, Arial, sans-serif;
+  /* Crisper rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  /* Display / brand voice — Clash Display. Applied explicitly via `font-display`
+     only on the big section headings; everything else stays on Satoshi. (Does
+     not depend on @theme token indirection, which resolved empty in Tw v4.) */
+  .font-display {
+    font-family: "Clash Display", "Satoshi", sans-serif;
+  }
+
+  /* Hide scrollbar (used by the horizontal steps slider) */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Hero rotating-word animations */
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes word-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0.45em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Entrance animations (hero) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(44px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@theme inline {
+  --animate-caret-blink: caret-blink 1.1s steps(1) infinite;
+  --animate-word-rise: word-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-rise-in: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
