@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+const aspekta = localFont({
+  src: "./fonts/AspektaVF.woff2",
+  variable: "--font-aspekta",
   display: "swap",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -20,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${aspekta.variable} h-full antialiased`}>
       <head>
-        {/* Satoshi (display) via Fontshare; Inter (body) is self-hosted via next/font */}
+        {/* Satoshi (display) via Fontshare; Aspekta (body) is self-hosted via next/font */}
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
         <link
