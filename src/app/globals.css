@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* font: Aspekta (variable, self-hosted via next/font/local) */
+/* fonts: Satoshi (display via Fontshare) + Inter (body via next/font) */
 :root {
   /* Brand palette (from Figma — LMS Landing Page) */
   --surface: #f6f5f3; /* warm off-white page background */
@@ -16,23 +16,23 @@
   --color-ink-strong: var(--ink-strong);
   --color-brand: var(--brand);
   --color-on-brand: var(--on-brand);
-  --font-sans: var(--font-aspekta), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-aspekta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Satoshi", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--surface);
   color: var(--ink);
-  font-family: var(--font-aspekta), ui-sans-serif, system-ui, Arial, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, Arial, sans-serif;
   /* Crisper rendering */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
-  /* Display / brand voice — Aspekta (applied on the big headings). */
+  /* Display / brand voice — Satoshi (applied on the big headings + wordmark). */
   .font-display {
-    font-family: var(--font-aspekta), ui-sans-serif, system-ui, sans-serif;
+    font-family: "Satoshi", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   /* Hide scrollbar (used by the horizontal steps slider) */
