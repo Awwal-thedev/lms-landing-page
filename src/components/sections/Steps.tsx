@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { StepsSlider, type Step } from "@/components/StepsSlider";
 
@@ -25,14 +26,14 @@ const STEPS: Step[] = [
 export function Steps() {
   return (
     <Section id="how-it-works" className="bg-white py-16 lg:py-24">
-      <div className="flex flex-col gap-1.5">
+      <Reveal className="flex flex-col gap-1.5">
         <h2 className="font-display text-[clamp(1.9rem,3.4vw,2.5rem)] font-semibold leading-[1.12] tracking-[-0.02em] text-[#092256]">
           How it works
         </h2>
         <p className="text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.5] text-[#54668b]">
           Just follow these easy steps
         </p>
-      </div>
+      </Reveal>
 
       <div className="mt-12 lg:mt-14">
         <StepsSlider steps={STEPS} />

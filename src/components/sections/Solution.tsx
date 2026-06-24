@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { ArrowRight } from "@/components/ui/icons";
 
@@ -58,7 +59,7 @@ const BOTTOM_CARDS: SolutionCard[] = [
 
 function Card({ title, description, image, imageW, imageH }: SolutionCard) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-[#fafafa] p-6 sm:p-[30px]">
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-[#fafafa] p-6 transition-[transform,box-shadow,border-color] duration-300 hover:border-black/10 hover:shadow-[0px_14px_30px_-14px_rgba(20,20,60,0.16)] motion-safe:hover:-translate-y-1 sm:p-[30px]">
       <div className="flex flex-1 flex-col gap-3">
         <h3 className="text-[clamp(1.3rem,1.8vw,1.625rem)] font-medium leading-[1.27] text-[#031335]">
           {title}
@@ -90,31 +91,35 @@ export function Solution() {
       innerClassName="flex flex-col items-center"
     >
       {/* Heading */}
-      <div className="flex max-w-[760px] flex-col items-center gap-3.5 text-center">
+      <Reveal className="flex max-w-[760px] flex-col items-center gap-3.5 text-center">
         <h2 className="text-balance font-display text-[clamp(2rem,4.4vw,3.125rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-[#1c1917]">
           What Inspectors actually ask for
         </h2>
         <p className="text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.5] tracking-[-0.01em] text-[#5e5e5e]">
           During inspections, surveyors typically request:
         </p>
-      </div>
+      </Reveal>
 
       {/* Cards */}
       <div className="mt-12 w-full lg:mt-14">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {TOP_CARDS.map((card) => (
-            <Card key={card.title} {...card} />
+          {TOP_CARDS.map((card, i) => (
+            <Reveal key={card.title} delay={i * 80} className="h-full">
+              <Card {...card} />
+            </Reveal>
           ))}
         </div>
         <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {BOTTOM_CARDS.map((card) => (
-            <Card key={card.title} {...card} />
+          {BOTTOM_CARDS.map((card, i) => (
+            <Reveal key={card.title} delay={i * 80} className="h-full">
+              <Card {...card} />
+            </Reveal>
           ))}
         </div>
       </div>
 
       {/* CTAs */}
-      <div className="mt-12 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
+      <Reveal className="mt-12 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
         <Button
           href="/sign-up"
           variant="dark"
@@ -138,7 +143,7 @@ export function Solution() {
         >
           Request Demo
         </Button>
-      </div>
+      </Reveal>
     </Section>
   );
 }

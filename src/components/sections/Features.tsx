@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 
 type Feature = {
@@ -51,7 +52,7 @@ export function Features() {
       innerClassName="flex flex-col items-center"
     >
       {/* Heading */}
-      <div className="flex max-w-[800px] flex-col items-center gap-4 text-center">
+      <Reveal className="flex max-w-[800px] flex-col items-center gap-4 text-center">
         <h2 className="font-display text-[clamp(2rem,4.6vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-[#1c1917]">
           Built for behavioral health compliance workflows.
         </h2>
@@ -59,14 +60,14 @@ export function Features() {
           Feel confident knowing your practice is fully ready for CARF and state
           inspections.
         </p>
-      </div>
+      </Reveal>
 
       {/* Cards */}
       <div className="mt-14 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
-        {FEATURES.map((f) => (
+        {FEATURES.map((f, i) => (
+          <Reveal key={f.title} delay={i * 80} className="h-full">
           <article
-            key={f.title}
-            className="flex flex-col gap-11 rounded-2xl bg-surface px-6 pb-11 pt-[42px]"
+            className="flex h-full flex-col gap-11 rounded-2xl bg-surface px-6 pb-11 pt-[42px] transition-[transform,box-shadow,border-color] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-[0px_14px_30px_-14px_rgba(20,20,60,0.18)] hover:ring-1 hover:ring-black/[0.04]"
           >
             <div className="flex h-[65px] items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -91,11 +92,14 @@ export function Features() {
               </div>
             </div>
           </article>
+          </Reveal>
         ))}
       </div>
 
       {/* Bottom pill */}
-      <div className="mt-12 inline-flex items-center gap-2.5 rounded-[11px] bg-white px-4 py-2.5 shadow-[0px_4px_6px_-6px_rgba(15,12,12,0.01),0px_0px_0px_1px_rgba(16,12,12,0.08),0px_0.4px_0.2px_-1.3px_rgba(0,0,0,0.07),0px_1.5px_0.9px_-2.7px_rgba(0,0,0,0.06),0px_6px_3.9px_-4px_rgba(0,0,0,0.03)]">
+      <Reveal
+        delay={120}
+        className="mt-12 inline-flex items-center gap-2.5 rounded-[11px] bg-white px-4 py-2.5 shadow-[0px_4px_6px_-6px_rgba(15,12,12,0.01),0px_0px_0px_1px_rgba(16,12,12,0.08),0px_0.4px_0.2px_-1.3px_rgba(0,0,0,0.07),0px_1.5px_0.9px_-2.7px_rgba(0,0,0,0.06),0px_6px_3.9px_-4px_rgba(0,0,0,0.03)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/features/badge.svg"
@@ -107,7 +111,7 @@ export function Features() {
         <span className="text-[15px] font-medium tracking-[0.32px] text-ink">
           Preparing facilities for CARF and state inspections.
         </span>
-      </div>
+      </Reveal>
     </Section>
   );
 }

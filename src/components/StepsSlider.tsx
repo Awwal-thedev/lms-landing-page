@@ -79,7 +79,7 @@ export function StepsSlider({ steps }: { steps: Step[] }) {
             className="w-[82%] shrink-0 snap-start sm:w-[56%] lg:w-[40%]"
           >
             {/* Phone card */}
-            <div className="overflow-hidden rounded-2xl bg-gradient-to-b from-[#f1f1f2] to-[#f8f8f9]">
+            <div className="overflow-hidden rounded-2xl bg-gradient-to-b from-[#f1f1f2] to-[#f8f8f9] transition-[transform,box-shadow] duration-300 hover:shadow-[0px_18px_36px_-18px_rgba(9,34,86,0.22)] motion-safe:hover:-translate-y-1">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={step.image}

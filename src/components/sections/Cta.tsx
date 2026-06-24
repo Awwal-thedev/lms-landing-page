@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/ui/Logo";
+import { Reveal } from "@/components/ui/Reveal";
 
 const gutter = "mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-12 xl:px-[110px]";
 
@@ -15,7 +16,7 @@ export function Cta() {
       <LogoMark className="pointer-events-none absolute -right-12 -top-20 size-[360px] text-[#2c3cff] sm:size-[440px] lg:-right-6 lg:-top-24 lg:size-[480px]" />
 
       <div className={`${gutter} relative py-20 sm:py-24 lg:py-28`}>
-        <div className="flex max-w-[660px] flex-col items-start gap-7">
+        <Reveal className="flex max-w-[660px] flex-col items-start gap-7">
           <div className="flex flex-col gap-4">
             <h2 className="font-display text-[clamp(2rem,4.4vw,3rem)] font-semibold leading-[1.07] tracking-[-0.02em] text-white">
               Work smarter, Stay Compliant with Theraptly
@@ -32,7 +33,7 @@ export function Cta() {
           >
             Request a demo
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Logo } from "@/components/ui/Logo";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function Advantage() {
   return (
@@ -24,7 +25,7 @@ export function Advantage() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center gap-7 px-4 pb-14 text-center sm:px-6 lg:px-12 lg:pb-20 xl:px-[110px]">
-        <div className="flex flex-col items-center gap-5">
+        <Reveal className="flex flex-col items-center gap-5">
           <h2 className="font-display text-[clamp(2rem,4vw,2.875rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-white">
             Built for small teams
           </h2>
@@ -35,9 +36,11 @@ export function Advantage() {
             billing, and incident reports, without adding another operational
             burden. Setup takes only 15 mins.
           </p>
-        </div>
+        </Reveal>
 
-        <Logo markClassName="text-[#aba4a2]" wordmarkClassName="text-[#aba4a2]" />
+        <Reveal delay={140}>
+          <Logo markClassName="text-[#aba4a2]" wordmarkClassName="text-[#aba4a2]" />
+        </Reveal>
       </div>
     </section>
   );
