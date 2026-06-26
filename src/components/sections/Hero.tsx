@@ -9,7 +9,7 @@ const ROTATING_WORDS = ["documentation.", "records.", "proof."];
 export function Hero() {
   return (
     <Section
-      className="relative overflow-hidden bg-surface pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-32 lg:pt-28"
+      className="relative overflow-hidden bg-surface pb-20 pt-14 sm:pb-24 sm:pt-16 lg:pb-32 lg:pt-20"
       innerClassName="relative"
     >
       {/* Ambient warm glow behind the headline */}
@@ -19,7 +19,7 @@ export function Hero() {
       />
 
       {/* Copy — staggered entrance (sits above the blob) */}
-      <div className="relative z-20 mx-auto flex max-w-[900px] flex-col items-center gap-7 text-center">
+      <div className="relative z-20 mx-auto flex max-w-[900px] flex-col items-center gap-6 text-center lg:max-w-[1040px]">
         <div className="motion-safe:animate-fade-up">
           <AnnouncementBanner badge="New" href="#whats-new">
             Theraptly LMS:
@@ -36,7 +36,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="max-w-[620px] text-balance text-[clamp(1.02rem,1.35vw,1.2rem)] font-normal leading-[1.6] tracking-[-0.005em] text-[#57534d] motion-safe:animate-fade-up motion-safe:[animation-delay:180ms]">
+        <p className="max-w-[620px] text-balance text-[clamp(1.02rem,1.35vw,1.2rem)] font-normal leading-[1.6] tracking-[-0.005em] text-[#57534d] motion-safe:animate-fade-up motion-safe:[animation-delay:180ms] lg:max-w-[1000px]">
           Theraptly turns your clinic policies into structured staff training —
           with timestamped completion records you can export the moment they are
           requested. No spreadsheets. No chasing staff. No scrambling before
@@ -71,7 +71,7 @@ export function Hero() {
       </div>
 
       {/* Product shot */}
-      <div className="relative z-10 mx-auto mt-20 w-full max-w-[1120px] motion-safe:animate-rise-in motion-safe:[animation-delay:360ms] sm:mt-24">
+      <div className="relative z-10 mx-auto mt-12 w-full max-w-[1120px] motion-safe:animate-rise-in motion-safe:[animation-delay:360ms] sm:mt-14">
         {/* Decorative blob — original width spans the screen (100vw) at its
             natural aspect ratio, vertically centered behind the glass image. */}
         <div
