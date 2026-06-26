@@ -23,12 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${aspekta.variable} h-full antialiased`}>
       <head>
-        {/* Satoshi (display) via Fontshare; Aspekta (body) is self-hosted via next/font */}
+        {/* General Sans (display) via Fontshare; Aspekta (body) is self-hosted via next/font */}
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
         <link
           rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#f6f5f3]">{children}</body>
