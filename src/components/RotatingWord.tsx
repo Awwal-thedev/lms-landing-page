@@ -77,7 +77,9 @@ export function RotatingWord({
 
   return (
     <span className="relative inline-flex items-baseline align-baseline">
-      <span className="whitespace-nowrap text-[#1c1917]">{display}</span>
+      <span className="whitespace-nowrap rounded-[0.15em] bg-gradient-to-r from-[#d6dbee]/80 to-[#e8ebf6]/40 px-[0.12em] text-[#1c1917]">
+        {display}
+      </span>
       {/* Blinking caret at the insertion point */}
       <span
         aria-hidden="true"
