@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type RotatingWordProps = {
   words: string[];
@@ -9,13 +9,18 @@ type RotatingWordProps = {
 };
 
 /**
- * Cycles through `words` with a fade/rise transition and a blinking caret,
- * mimicking a text cursor "typing" the next word. Respects reduced motion:
- * when the user prefers reduced motion, it shows the first word statically.
+ * Cycles through `words` with a fade/rise transition and a blinking caret.
+ * A single hidden measurer renders the CURRENT word and the slot animates its
+ * width to fit it, so the centered headline stays balanced for every word
+ * (short words no longer left-align in a fixed widest-word slot) without ever
+ * jumping the layout. Respects reduced motion: shows the first word statically.
  */
 export function RotatingWord({ words, interval = 2400 }: RotatingWordProps) {
   const [index, setIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+
+  const measurerRef = useRef<HTMLSpanElement>(null);
+  const [width, setWidth] = useState<number>();
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,6 +29,20 @@ export function RotatingWord({ words, interval = 2400 }: RotatingWordProps) {
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, []);
+
+  // Measure the current word and size the slot to it. Re-measure on word change,
+  // after the font loads, and on resize (clamp() font sizing changes widths).
+  useEffect(() => {
+    const measure = () => {
+      if (measurerRef.current) {
+        setWidth(measurerRef.current.getBoundingClientRect().width);
+      }
+    };
+    measure();
+    document.fonts?.ready?.then(measure);
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [index]);
 
   useEffect(() => {
     if (reducedMotion || words.length <= 1) return;
@@ -34,6 +53,8 @@ export function RotatingWord({ words, interval = 2400 }: RotatingWordProps) {
     return () => clearInterval(id);
   }, [reducedMotion, words.length, interval]);
 
+  const word = words[index];
+
   return (
     <span className="relative inline-flex items-center align-baseline">
       {/* Blinking caret */}
@@ -41,18 +62,27 @@ export function RotatingWord({ words, interval = 2400 }: RotatingWordProps) {
         aria-hidden="true"
         className="mr-2 inline-block w-[3px] self-stretch rounded-full bg-[#0119df] motion-safe:animate-caret-blink"
       />
-      {/* Rotating word — reserve width for the widest word so the centered
-          line never jumps, but keep the highlight hugging the actual word. */}
-      <span className="relative inline-grid justify-items-start">
-        {/* Sizer */}
-        <span aria-hidden="true" className="invisible col-start-1 row-start-1">
-          {words.reduce((a, b) => (a.length >= b.length ? a : b), "")}
+
+      {/* Width-animated slot — re-centers the headline per word */}
+      <span
+        className="relative inline-block overflow-x-clip overflow-y-visible align-baseline motion-safe:transition-[width] motion-safe:duration-500 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)]"
+        style={width != null ? { width: `${width}px` } : undefined}
+      >
+        {/* Hidden measurer — always the current word, so width can't mismatch */}
+        <span
+          ref={measurerRef}
+          aria-hidden="true"
+          className="invisible pointer-events-none absolute left-0 top-0 whitespace-nowrap px-[0.12em]"
+        >
+          {word}
         </span>
+
+        {/* Visible current word */}
         <span
           key={index}
-          className="col-start-1 row-start-1 whitespace-nowrap rounded-[0.15em] bg-gradient-to-r from-[#d6dbee]/80 to-[#e8ebf6]/40 px-[0.12em] text-[#1c1917] motion-safe:animate-word-rise"
+          className="block whitespace-nowrap rounded-[0.15em] bg-gradient-to-r from-[#d6dbee]/80 to-[#e8ebf6]/40 px-[0.12em] text-[#1c1917] motion-safe:animate-word-rise"
         >
-          {words[index]}
+          {word}
         </span>
       </span>
     </span>
