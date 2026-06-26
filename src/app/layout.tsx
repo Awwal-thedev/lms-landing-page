@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+
+// Inter with the optical-size axis → large headings render the "Inter Display"
+// optical cut automatically (via font-optical-sizing: auto on .font-display).
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  axes: ["opsz"],
+});
 
 const aspekta = localFont({
   src: "./fonts/AspektaVF.woff2",
@@ -21,16 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${aspekta.variable} h-full antialiased`}>
-      <head>
-        {/* General Sans (display) via Fontshare; Aspekta (body) is self-hosted via next/font */}
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`${inter.variable} ${aspekta.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col bg-[#f6f5f3]">{children}</body>
     </html>
   );
