@@ -20,7 +20,7 @@ export function Problems() {
           {/* Left — copy + messy sources */}
           <div className="flex w-full min-w-0 flex-col gap-7 lg:max-w-[605px]">
             <Reveal className="flex flex-col gap-2.5">
-              <h2 className="font-display text-[clamp(1.75rem,3.4vw,2.625rem)] font-semibold leading-[1.12] tracking-[-0.02em] text-[#001047]">
+              <h2 className="font-display text-[clamp(1.75rem,3.4vw,2.625rem)] font-medium leading-[1.12] tracking-[-0.02em] text-[#001047]">
                 Training usually happens, but documentation is often
                 unorganized.
               </h2>

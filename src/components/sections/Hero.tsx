@@ -26,7 +26,7 @@ export function Hero() {
           </AnnouncementBanner>
         </div>
 
-        <h1 className="font-display font-bold tracking-[-0.035em] text-[#1c1917] motion-safe:animate-fade-up motion-safe:[animation-delay:90ms]">
+        <h1 className="font-display font-semibold tracking-[-0.03em] text-[#1c1917] motion-safe:animate-fade-up motion-safe:[animation-delay:90ms]">
           <span className="block text-balance text-[clamp(2.1rem,5.4vw,3.75rem)] leading-[1.05]">
             Be ready when inspectors ask for
           </span>

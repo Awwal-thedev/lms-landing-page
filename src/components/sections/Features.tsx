@@ -53,7 +53,7 @@ export function Features() {
     >
       {/* Heading */}
       <Reveal className="flex max-w-[800px] flex-col items-center gap-4 text-center">
-        <h2 className="font-display text-[clamp(2rem,4.6vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-[#1c1917]">
+        <h2 className="font-display text-[clamp(2rem,4.6vw,3.25rem)] font-medium leading-[1.08] tracking-[-0.02em] text-[#1c1917]">
           Built for behavioral health compliance workflows.
         </h2>
         <p className="max-w-[640px] text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.5] tracking-[-0.01em] text-[#5e5e5e]">

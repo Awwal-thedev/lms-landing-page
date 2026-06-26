@@ -26,7 +26,7 @@ export function Advantage() {
       {/* Content */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center gap-7 px-4 pb-14 text-center sm:px-6 lg:px-12 lg:pb-20 xl:px-[110px]">
         <Reveal className="flex flex-col items-center gap-5">
-          <h2 className="font-display text-[clamp(2rem,4vw,2.875rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-white">
+          <h2 className="font-display text-[clamp(2rem,4vw,2.875rem)] font-medium leading-[1.15] tracking-[-0.02em] text-white">
             Built for small teams
           </h2>
           <p className="max-w-[940px] text-balance text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.65] tracking-[-0.01em] text-white/85">

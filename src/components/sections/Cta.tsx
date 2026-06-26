@@ -18,7 +18,7 @@ export function Cta() {
       <div className={`${gutter} relative py-20 sm:py-24 lg:py-28`}>
         <Reveal className="flex max-w-[660px] flex-col items-start gap-7">
           <div className="flex flex-col gap-4">
-            <h2 className="font-display text-[clamp(2rem,4.4vw,3rem)] font-semibold leading-[1.07] tracking-[-0.02em] text-white">
+            <h2 className="font-display text-[clamp(2rem,4.4vw,3rem)] font-medium leading-[1.07] tracking-[-0.02em] text-white">
               Work smarter, Stay Compliant with Theraptly
             </h2>
             <p className="max-w-[420px] text-[clamp(1rem,1.2vw,1.15rem)] leading-[1.45] text-[#f1f1f1]">

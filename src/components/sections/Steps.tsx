@@ -27,7 +27,7 @@ export function Steps() {
   return (
     <Section id="how-it-works" className="bg-white py-16 lg:py-24">
       <Reveal className="flex flex-col gap-1.5">
-        <h2 className="font-display text-[clamp(1.9rem,3.4vw,2.5rem)] font-semibold leading-[1.12] tracking-[-0.02em] text-[#092256]">
+        <h2 className="font-display text-[clamp(1.9rem,3.4vw,2.5rem)] font-medium leading-[1.12] tracking-[-0.02em] text-[#092256]">
           How it works
         </h2>
         <p className="text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.5] text-[#54668b]">

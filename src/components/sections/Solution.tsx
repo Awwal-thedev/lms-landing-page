@@ -92,7 +92,7 @@ export function Solution() {
     >
       {/* Heading */}
       <Reveal className="flex max-w-[760px] flex-col items-center gap-3.5 text-center">
-        <h2 className="text-balance font-display text-[clamp(2rem,4.4vw,3.125rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-[#1c1917]">
+        <h2 className="text-balance font-display text-[clamp(2rem,4.4vw,3.125rem)] font-medium leading-[1.1] tracking-[-0.02em] text-[#1c1917]">
           What Inspectors actually ask for
         </h2>
         <p className="text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.5] tracking-[-0.01em] text-[#5e5e5e]">
