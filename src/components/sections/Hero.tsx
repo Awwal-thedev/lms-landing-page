@@ -36,7 +36,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="max-w-[620px] text-balance text-[clamp(1.02rem,1.35vw,1.2rem)] font-normal leading-[1.6] tracking-[-0.005em] text-[#57534d] motion-safe:animate-fade-up motion-safe:[animation-delay:180ms] lg:max-w-[1000px]">
+        <p className="max-w-[620px] text-balance text-[clamp(1.02rem,1.35vw,1.2rem)] font-normal leading-[1.6] tracking-[-0.005em] text-[#57534d] motion-safe:animate-fade-up motion-safe:[animation-delay:180ms] lg:max-w-[740px]">
           Theraptly turns your clinic policies into structured staff training —
           with timestamped completion records you can export the moment they are
           requested. No spreadsheets. No chasing staff. No scrambling before
